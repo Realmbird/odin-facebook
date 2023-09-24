@@ -8,6 +8,10 @@ User Signin is implemented with https://github.com/heartcombo/devise.
 
 The test suite covers Models, Controllers, Mailers, and Integration Testing.
 
+# Setting Up
+```ruby
+  #git clone 
+```
 # Thoughts
 
 ##### Models
