@@ -10,7 +10,7 @@ The test suite covers Models, Controllers, Mailers, and Integration Testing.
 
 # Setting Up
 ```ruby
-  #git clone 
+  $git clone git@github.com:Realmbird/odin-facebook.git 
 ```
 # Thoughts
 
