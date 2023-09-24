@@ -1,24 +1,7 @@
-# README
+# Social Scrolls
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A social media app inspired by Facebook. Created as part of the Odin Project [curriculum](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project). View [live page](https://socialscrolls.herokuapp.com/).
 
-Things you may want to cover:
+OmniAuth is implemented for Facebook and Github. Active Storage is used for avatar and photo uploads, using cloud storage on [Cloudinary](https://cloudinary.com/). Action Mailer is used with the default [Mail](https://github.com/mikel/mail) gem.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Test suite covers Models, Controllers, Mailers, and Integration Testing with Capybara.
