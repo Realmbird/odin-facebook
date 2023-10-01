@@ -1,0 +1,12 @@
+<h1>User List</h1>
+
+<div id = "users">
+    <ul>
+        <% @users.each do |user|%>
+            <li id = "user">
+                <%= user.email %>
+                <%= link_to "Add Friend", friendships_path(friend_id: user.id), data: { turbo_method: "post" }%>
+            </li>  
+        <% end%>
+    </ul>  
+</div>
