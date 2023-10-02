@@ -20,6 +20,9 @@ The test suite covers Models, Controllers, Mailers, and Integration Testing.
   <li>
     I later added the ability to add friends and accept friend requests but, I wanted to make a option for the model to tell if the friendship was mutual on both sides. So I decided to make a boolean and used it to say if the friendship was mutual.
   </li>
+  <li>
+    I struggled getting the scope onto the inverse_friends since they did not have a confirm request. So I decided to put the query for inverse_friends inside the show view only for inverse_friends. I had to use pluck since I can't get attributes from the active model association.
+  </li>
 </ol>
 ##### Devise
 <ul>
