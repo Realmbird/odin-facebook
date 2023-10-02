@@ -3,12 +3,17 @@
     <h3>Recieved</h3>
     <ul>
         <% @user.inverse_friends.each do |recieved_user| %>
-            <li>
-               <%# friend to add they are sending request to you%>
-               <%= recieved_user.email %>
-               (<%= link_to "add friend", friendships_path(friend_id: recieved_user.id), data: { turbo_method: "post" }%>)
-            </li>
-        <% end %>
+            <% @recieved_friendship = Friendship.where(friend_id: recieved_user.id)%>
+            <%unless @recieved_friendship.pluck(:confirmed)%>
+           
+                <li>
+                <%# friend to add they are sending request to you%>
+                <%= recieved_user.email %>
+                (<%= link_to "add friend", friendships_path(friend_id: recieved_user.id, confirmed: true), data: { turbo_method: "patch" }%>)
+                </li>
+            <% end%>
+        <% end%>
+       
     </ul>
     <h3>Sent</h3>
     <ul>
@@ -23,5 +28,12 @@
 </div>
 
 <div id = "friends">
-    
+    <h1>Friends</h1>
+    <% @user.true_friends.each do |friend|%>
+            <li>
+                <%# friend request you already sent%>
+                <%= friend.email %>
+                (<%# link_to "remove", , data: {turbo_method: "delete"}%>)
+            </li>
+    <% end %>
 </div>
