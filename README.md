@@ -1,3 +1,4 @@
+test
 # Social Scrolls
 
 A social media app inspired by Facebook. Created as part of the Odin Project [curriculum](https://www.theodinproject.com/courses/ruby-on-rails/lessons/final-project). View live page
