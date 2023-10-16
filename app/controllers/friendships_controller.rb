@@ -15,9 +15,14 @@ class FriendshipsController < ApplicationController
     end
 
     def update
-        @friendship = Friendship.where(friend_id: params[:friend_id])
-        @friendship.update(confirmed: params[:confirmed])
-        redirect_to current_user
+        @friendship = Friendship.where(user_id: params[:friend_id], friend_id: current_user.id)
+        if @friendship.update(confirmed: true)
+            flash[:notice] = "sent friendship"
+            redirect_to current_user
+        else
+            flash[:error] = "didn't update"
+            redirect_to root_url
+        end
     end
     
     def destroy
