@@ -29,3 +29,12 @@ The test suite covers Models, Controllers, Mailers, and Integration Testing.
   <li> Initial setup of Devise was not too difficult since I already had some experience setting up devise</li>
   <li> Trying to make db:seed data for the devise user model took me some time since I didn't know how to setup the devise models in active record association before.</li>
 </ul>
+##### Friendship System
+<ul>
+  <li>Creating the names for the friendship relationships took me a lot of time</li>
+  <li>Had a bug with friendships which took me a few weeks to fix I forgot that the where chooses the first element that meets its conditions so I simply hadded more conditions to the where query and my code started working</li>
+</ul>
+##### Post, Comment, and Likes System
+<ul>
+  
+</ul>
