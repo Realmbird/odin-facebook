@@ -1,0 +1,28 @@
+<%# Notifications shows Friend Requests %>
+<div id = "pending">
+    <h1>Pending Friend Requests</h1>
+    <h3>Recieved</h3>
+
+    <ul>
+        <% @user.inverse_friends.each do |recieved_user| %>
+                <li>
+                <%# friend to add they are sending request to you%>
+                <%= recieved_user.email %>
+                (<%= link_to "add friend", friendships_path(friend_id: recieved_user.id, confirmed: true), data: { turbo_method: "patch" }%>)
+                </li>
+        <% end%>
+       
+    </ul>
+    <h3>Sent</h3>
+    <ul>
+        <% @user.friendships.each do |sent_user|%>
+             <%# unless sent_user.confirmed%>
+                <li>
+                    <%# friend request you already sent%>
+                    <%= sent_user.friend.email %>
+                    (<%= link_to "remove request", sent_user, data: {turbo_method: "delete"}%>)
+                </li>
+            <%# end%>
+        <% end %>
+    </ul>
+</div>

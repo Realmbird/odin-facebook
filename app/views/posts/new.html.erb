@@ -1,0 +1,9 @@
+<%= stylesheet_link_tag 'post_form.css' %>
+<%= form_with model: @post do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id%>
+  <%= form.label :title, "Title: "%>
+  <%= form.text_field :title %>
+  <%= form.label :body, "Body: "%>
+  <%= form.text_area :body, size: "60x10" %>
+  <%= form.submit "Create" %>
+<% end %>

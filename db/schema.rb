@@ -10,9 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_02_000743) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_23_182650) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "commentable_type"
+    t.bigint "commentable_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
+  end
 
   create_table "friendships", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,6 +31,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_02_000743) do
     t.boolean "confirmed", default: false
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
     t.index ["user_id"], name: "index_friendships_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "likable_type"
+    t.bigint "likable_id"
+    t.index ["likable_type", "likable_id"], name: "index_likes_on_likable"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "body"
+    t.string "title"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
