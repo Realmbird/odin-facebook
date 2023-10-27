@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :users
-  resources :friendships
-  resources :posts
+  resources :users, :posts, :friendships, :likes, :comments
+  
   
   patch '/friendships', to: 'friendships#update'
   # Defines the root path route ("/")

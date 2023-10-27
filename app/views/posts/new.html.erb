@@ -1,5 +1,5 @@
 <%= stylesheet_link_tag 'post_form.css' %>
-<%= form_with model: @post do |form| %>
+<%= form_with model: @post, html: {class: "post"} do |form| %>
   <%= form.hidden_field :user_id, value: current_user.id%>
   <%= form.label :title, "Title: "%>
   <%= form.text_field :title %>
