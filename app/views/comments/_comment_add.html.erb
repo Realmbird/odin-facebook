@@ -1,0 +1,11 @@
+<%= form_with model: Comment.new do |form| %>
+  <%= form.hidden_field :user_id, value: current_user.id %>
+  <%= form.hidden_field :global_id, value: commentable.to_global_id %>
+  <p>
+      <%= form.label :body %><br>
+      <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

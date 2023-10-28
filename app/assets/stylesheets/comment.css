@@ -1,8 +1,8 @@
-div.post {
+div.comment {
     display: flex;
     flex-direction: column;
     flex-basis: auto;
-    align-items: start;
+    align-items: center;
 }
 div.like {
     margin: 20px;

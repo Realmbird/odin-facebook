@@ -1,13 +1,14 @@
 class LikesController < ApplicationController
     def create
         if User.exists?
-            @like = current_user.likes.build(likable_id: params[:likable_id], likable_type: params[:likable_type], user_id: current_user.id)
+            likable  = GlobalID::Locator.locate(params[:global_id])
+            @like = Like.new(likable_id: likable.id, likable_type: likable.class.name, user_id: current_user.id)
             if @like.save
-                flash[:notice] = "Added Like. #{ params[:likable_type]}"
-                redirect_to root_url
+                flash[:notice] = "Added Like."
+                redirect_to request.fullpath
             else
                 flash[:error] = "Unable to add Like."
-                redirect_to root_url
+                redirect_to request.fullpath
             end
         end
     end

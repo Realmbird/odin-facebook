@@ -8,7 +8,8 @@
 # clears database
 User.destroy_all
 Friendship.destroy_all
-
+Comment.destroy_all
+Like.destroy_all
 password = "godofThunder"
 10.times do |i|
     User.create(id: "#{i}", email: "test#{i}@gmail.com", password: password, password_confirmation: password)

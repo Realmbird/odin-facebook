@@ -33,8 +33,12 @@ class PostsController < ApplicationController
         @post = Post.find(params[:id])
     end
 
+    def edit
+        @post = Post.find(params[:id])
+    end
+    
     def index
-        @post = Post.all.where(user_id: current_user.id)
+        @posts = Post.all.where(user_id: current_user.id).order(updated_at: :desc)
     end
     
     private

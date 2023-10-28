@@ -1,10 +1,34 @@
-<%= stylesheet_link_tag 'post_form.css' %>
 <%= stylesheet_link_tag 'post.css' %>
-<div>
-  <p>User Id: <%= post.user_id%> </p>
+
+<div class = "post">
+  <% user = User.find(post.user_id)%>
+  <p> Author: <%= user.email %> </p>
   <h3>Title: <%= post.title %> </h3>
   <p> <%= post.body %></p>
 </div>
-<%= post.class.name %>
-<%= button_to "Like", likes_path(likable_id: post, likable_type: post.class.name), method: :post %>
-<%= Like.where(likable_id: post).count %>
+
+<div class = "clickables">
+  <div class = "like">
+    <%= link_to "Like", likes_path(global_id: post.to_global_id), data: {turbo_method: :post} %>
+    <%= Like.where(likable_id: post, likable_type: post.class.name).count %>
+  </div>
+  <%= link_to "Edit", post_path(post.id)%>
+</div>
+  <%# post.class.name %>
+
+<h2>Comments</h2>
+<% post.comments.each do |comment| %>
+  <%= render "/comments/comment_form", comment: comment%>
+<% end %>
+
+
+
+
+<p>Add a comment:</p>
+<%= render "/comments/comment_add", commentable: post%>
+
+
+
+
+
+

@@ -7,4 +7,5 @@ class Comment < ApplicationRecord
     has_many :comments, as: :commentable
     # A comment can have many likes  
     has_many :likes, as: :likable
+    accepts_nested_attributes_for :comments
 end

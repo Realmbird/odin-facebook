@@ -5,3 +5,9 @@ form.post {
     align-items: center;
 
 }
+div.clickables {
+    display: flex;
+    flex-direction: row;
+    flex-basis: auto;
+    justify-content: space-evenly;
+}

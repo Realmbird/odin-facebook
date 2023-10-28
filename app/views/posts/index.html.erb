@@ -1,3 +1,4 @@
+<%= render "/posts/new_post", post: Post.new %>
 <% @posts.each do |post| %>  
     <%= render "/posts/post_form", post: post %>
 <% end%>
