@@ -12,5 +12,5 @@ Comment.destroy_all
 Like.destroy_all
 password = "godofThunder"
 10.times do |i|
-    User.create(id: "#{i}", email: "test#{i}@gmail.com", password: password, password_confirmation: password)
+    User.create(id: "#{i}", username: "testsubject#{i}", email: "test#{i}@gmail.com", password: "godofThunder#{i}", password_confirmation: "godofThunder#{i}")
 end
