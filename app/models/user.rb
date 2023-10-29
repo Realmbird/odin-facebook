@@ -39,6 +39,11 @@ class User < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :likes, as: :likable
   
+  def profile_pic 
+    hash = Digest::MD5.hexdigest(email)
+    "https://www.gravatar.com/avatar/#{hash}"
+  end
+
 
   def true_friends
     #finds all friendships where you sent it which you have accepted then finds who accepted
@@ -53,3 +58,5 @@ class User < ApplicationRecord
     Like.where(user_id: id)
   end
 end
+
+

@@ -1,5 +1,10 @@
 <%# Shows the User%>
-
+<%= stylesheet_link_tag 'profile.css' %>
+<div class = "profile">
+    <%= image_tag current_user.profile_pic %> <br />
+    <p> Username: <%= current_user.username %> </p> <br />
+    <p> Email: <%= current_user.email %></p>
+</div>
 <div id = "friends">
     <h1>Friends</h1>
     <% @user.true_friends.each do |friend|%>

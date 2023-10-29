@@ -1,5 +1,7 @@
 <div class = "comment">
   <h4>Comment</h4>
+    <%  user = User.find(comment.user_id)%>
+    <%= image_tag user.profile_pic %>
   <div>
     <p>Content: </p>
       <p> <%= comment.body %></p>
@@ -8,10 +10,7 @@
   <div class = "like">
     <%= link_to "Comment Like", likes_path(global_id: comment.to_global_id), data: {turbo_method: :post}%>
     <%= Like.where(likable_id: comment, likable_type: comment.class.name).count %>
-  </div>
-   <div class = "chat-room">
-    <%= link_to "Chat Bubble", comment_path(comment.id)%>
-    <%= Comment.where(commentable_id: comment, commentable_type: comment.class.name).count %>
+      <%= link_to "Chat Bubble", comment_path(comment.id)%>
   </div>
 </div>
 

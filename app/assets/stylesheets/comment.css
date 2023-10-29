@@ -7,3 +7,9 @@ div.comment {
 div.like {
     margin: 20px;
 }
+div.comment img{
+    border-radius: 50%;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+}
