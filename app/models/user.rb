@@ -30,6 +30,7 @@ class User < ApplicationRecord
   # Adding facebook
   devise :omniauthable, omniauth_providers: %i[facebook]
 
+  
   # relationships of models
   
   has_many :friendships, -> {where(confirmed: false)}
