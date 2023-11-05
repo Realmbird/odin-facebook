@@ -1,1 +1,14 @@
 <%= render "/posts/post_form", post: @post %>
+
+<h2>Comments</h2>
+<% @post.comments.each do |comment| %>
+  <%= render "/comments/comment_form", comment: comment%>
+<% end %>
+</div>
+
+
+
+
+
+<p>Add a comment:</p>
+<%= render "/comments/comment_add", commentable: @post%>

@@ -306,8 +306,8 @@ Devise.setup do |config|
 
   # ==> Configuration for :registerable
   config.omniauth :facebook, ENV["facebook_app_id"], ENV["facebook_secret"]
-  config.omniauth :google_oauth2, ENV['google_app_id'], ENV['google_secret']
-  config.omniauth :github, ENV["github_app_id"], ENV["github_secret"]
+  config.omniauth :google_oauth2, ENV['google_app_id'], ENV['google_secret'], {}
+  config.omniauth :github, ENV["github_app_id"], ENV["github_secret"], scope: 'user,repo,gist'
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true

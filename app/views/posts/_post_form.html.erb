@@ -17,22 +17,10 @@
     <%= link_to "Like", likes_path(global_id: post.to_global_id), data: {turbo_method: :post} %>
     <%= Like.where(likable_id: post, likable_type: post.class.name).count %>
   </div>
-  <%= link_to "Edit", post_path(post.id)%>
+  <%= link_to "Show", post_path(post.id)%>  |  
+  <%= link_to "Edit", edit_post_path(post.id)%>
 </div>
   <%# post.class.name %>
-
-<h2>Comments</h2>
-<% post.comments.each do |comment| %>
-  <%= render "/comments/comment_form", comment: comment%>
-<% end %>
-</div>
-
-
-
-
-
-<p>Add a comment:</p>
-<%= render "/comments/comment_add", commentable: post%>
 
 
 
