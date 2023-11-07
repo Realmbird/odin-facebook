@@ -59,4 +59,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  def create
+    super do |user|
+      # gets a resource from devise create and gets user 
+      if user.persisted?
+        # adds action mailer
+        UserMailer.welcome_email(user).deliver_later
+      end
+    end
+  end
 end

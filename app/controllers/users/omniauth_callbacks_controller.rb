@@ -42,10 +42,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       flash[:alert] =
         t 'devise.omniauth_callbacks.failure', kind: 'Github', reason: "#{auth.info.email} is not authorized."
-      redirect_to new_user_session_path
+      redirect_to new_user_registration_url
     end
   end
-
   
 
   # You should also create an action method in this controller like this:

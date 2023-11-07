@@ -95,6 +95,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.5.12)
+      rails (>= 3.0.0)
     erubi (1.12.0)
     faraday (2.7.11)
       base64
@@ -119,6 +121,10 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jwt (2.7.1)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -230,6 +236,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (5.12.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.12.0)
+    sentry-ruby (5.12.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
@@ -275,9 +286,11 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
+  dockerfile-rails (>= 1.5)
   figaro
   importmap-rails
   jbuilder
+  letter_opener
   omniauth
   omniauth-facebook
   omniauth-github
@@ -287,6 +300,8 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.8)
   selenium-webdriver
+  sentry-rails (~> 5.12)
+  sentry-ruby (~> 5.12)
   sprockets-rails
   stimulus-rails
   turbo-rails

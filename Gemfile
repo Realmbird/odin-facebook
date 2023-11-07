@@ -83,3 +83,9 @@ gem 'omniauth-rails_csrf_protection'
 gem "figaro"
 gem "letter_opener", group: :development
 
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.12"
+
+gem "sentry-rails", "~> 5.12"
